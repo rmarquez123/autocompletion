@@ -1,6 +1,6 @@
 # autocompletion
 
-A simple autocompletion module for satisfying use case steps 
+A module for simple auto completion.  The purpose of this module is to satisfy the use case steps: 
   1. User enters text and invokes autocompletion
   1. A list of candidate completion items is returned based on the word preceding the cursor position
   1. The user selects one of the completion items from the list of candidate completion items
