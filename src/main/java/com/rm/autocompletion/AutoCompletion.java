@@ -39,7 +39,7 @@ public class AutoCompletion {
       throw new NullPointerException("Managed Set is undefined");
     }
     if (display == null) {
-      throw new NullPointerException("Managed Set is undefined");
+      throw new NullPointerException("CompletionItemsDisplay is undefined");
     }
     this.document = document;
     this.managedSet = managedSet;
