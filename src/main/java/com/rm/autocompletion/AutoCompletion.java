@@ -6,11 +6,12 @@ package com.rm.autocompletion;
  * Intended to serve a general purpose module for implementing steps when a user
  * of a document types some text, gets a selection of possible completion items,
  * and replaces text according to a selected completion item.
+ * </p>
  * <p>
- * <p>
- * Clients either use accessors from this class or mutate collaborators
- * {@linkplain Document} or {@linkplain CompletionItemsDisplay} with the same
- * collaboration taking place in either case.
+ * Clients can either use accessors from this class or changed properties of
+ * collaborators {@linkplain Document} or {@linkplain CompletionItemsDisplay}
+ * with the same steps taking place in either case, the difference being
+ * procedural vs event driven.
  * </p>
  *
  * @author rmarquez
@@ -29,7 +30,8 @@ public class AutoCompletion {
    * @param display A {@linkplain CompletionItemsDisplay} instance.
    * @throws NullPointerException if any argument is null.
    */
-  public AutoCompletion(Document document, ManagedSet managedSet, CompletionItemsDisplay display) {
+  public AutoCompletion(Document document, ManagedSet managedSet,
+          CompletionItemsDisplay display) {
     if (document == null) {
       throw new NullPointerException("Document is undefined");
     }
@@ -42,8 +44,10 @@ public class AutoCompletion {
     this.document = document;
     this.managedSet = managedSet;
     this.display = display;
-    this.document.cursorWordProperty().addListener((obs, old, change) -> onCharacterTypedEvent());
-    this.display.getCompletionItemSelected().addListener((obs, old, change) -> onCompletionItemSelectedEvent());
+    this.document.cursorWordProperty().addListener((obs, old, change)
+            -> onCharacterTypedEvent());
+    this.display.getCompletionItemSelected().addListener((obs, old, change)
+            -> onCompletionItemSelectedEvent());
   }
 
   /**
@@ -73,19 +77,22 @@ public class AutoCompletion {
   }
 
   /**
-   *  
+   * Invoked on cursor word changed event.
    */
   private void onCharacterTypedEvent() {
-    CursorWord cursorWord = (CursorWord) this.document.cursorWordProperty().getValue();
-    CandidateCompletionItems candidateCompletionItems = this.managedSet.getCandidateCompletionItems(cursorWord);
+    CursorWord cursorWord = (CursorWord) this.document
+            .cursorWordProperty().getValue();
+    CandidateCompletionItems candidateCompletionItems
+            = this.managedSet.getCandidateCompletionItems(cursorWord);
     this.display.display(candidateCompletionItems);
   }
 
   /**
-   *
+   * Invoked on completionItemSelected change event.
    */
   private void onCompletionItemSelectedEvent() {
-    CompletionItem completionItem = this.display.getCompletionItemSelected().getValue();
+    CompletionItem completionItem = this.display.getCompletionItemSelected()
+            .getValue();
     this.document.replaceCursorWord(completionItem);
   }
 }

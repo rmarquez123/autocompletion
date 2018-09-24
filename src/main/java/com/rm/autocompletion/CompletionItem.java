@@ -8,11 +8,10 @@ import java.util.Objects;
  * @author rmarquez
  */
 public class CompletionItem implements Comparable<CompletionItem> {
-
   private final String key;
   private final String insertionText;
   private final Object object;
-
+  
   /**
    *
    * @param text
@@ -23,6 +22,7 @@ public class CompletionItem implements Comparable<CompletionItem> {
     this.key = text;
     this.insertionText = insertionText;
     this.object = object;
+    
   }
 
   /**
