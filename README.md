@@ -7,3 +7,4 @@ A simple autocompletion module for satisfying use case steps
   <li>The user selects one of the completion items from the list of candidate completion items</li>
   <li>The word preceding the cursor postion is replaced based on the insertion text of the selected completion item</li>
 </ol> 
+This module provides the <code>AutoCompletion</code> object as the public controller class and interfaces <code>Document</code> and <code>CompletionItemsDisplayer</code>. 
