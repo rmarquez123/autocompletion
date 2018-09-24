@@ -7,4 +7,6 @@ A module for simple auto completion.  The purpose of this module is to satisfy t
   1. The word preceding the cursor postion is replaced based on the insertion text of the selected completion item
 This module provides the <code>AutoCompletion</code> object as the public controller class and <code>Document</code> and <code>CompletionItemsDisplayer</code> as interfaces. 
 
-<img src="http://ricardo-marquez.com/rm/assets/images/activity-diagram-page-6.svg" alt="" height="250">
+<div style="margin:auto"> 
+  <img src="http://ricardo-marquez.com/rm/assets/images/activity-diagram-page-6.svg" alt="" height="400">
+</div> 
