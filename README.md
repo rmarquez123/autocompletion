@@ -15,6 +15,6 @@ The are actually two entry points in the sequence.  The first part of the use ca
 The sequence diagram, shown below, shows the interactions of the primary classes involved. This module provides the <code>AutoCompletion</code> object as the public controller class and <code>Document</code> and <code>CompletionItemsDisplayer</code> as interfaces which should also be implemented by the client.
 
 <div align="center" width="1200px"> 
-  <img src="http://ricardo-marquez.com/rm/assets/images/activity-diagram-page-5.svg" alt="" height="500px">
+  <img src="http://ricardo-marquez.com/rm/assets/images/activity-diagram-page-5.svg" alt="" height="450px">
 </div> 
 
