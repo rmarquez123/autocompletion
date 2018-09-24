@@ -3,17 +3,19 @@ package com.rm.autocompletion;
 import javafx.beans.property.Property;
 
 /**
+ * Intended for displaying and provided user interaction for selection of
+ * candidate completion items.
  *
  * @author rmarquez
  */
 public interface CompletionItemsDisplay {
-  
+
   /**
-   * 
-   * @return 
+   *
+   * @return
    */
-  Property<CandidateCompletionItems> candidateCompletionItemsProperty(); 
-  
+  Property<CandidateCompletionItems> candidateCompletionItemsProperty();
+
   /**
    *
    * @return

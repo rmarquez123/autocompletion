@@ -9,8 +9,12 @@ import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
 
-
-/* @author rmarquez
+/**
+ * A set of completion items. Used in collaboration with
+ * {@linkplain AutoCompletion} for providing candidate completion items based on
+ * text typed by a user of a document.
+ *
+ * @author rmarquez
  */
 public class ManagedSet {
 
@@ -23,15 +27,15 @@ public class ManagedSet {
   public ManagedSet(List<CompletionItem> textItems) {
     this.textItems.setValue(FXCollections.observableArrayList(textItems));
   }
-  
+
   /**
-   * 
-   * @param items 
+   *
+   * @param items
    */
   public void setCompletionItems(List<CompletionItem> items) {
     this.textItems.setValue(FXCollections.observableArrayList(items));
   }
-  
+
   /**
    *
    * @param cursorWord
@@ -55,7 +59,7 @@ public class ManagedSet {
       return completionItem;
     }).collect(Collectors.toSet());
     List<CompletionItem> itemsList;
-    
+
     if ((items.size() == 1 && this.getJoin(items).isEmpty())) {
       itemsList = Arrays.asList(new CompletionItem(cursorWord.getText(), cursorWord.getText(), null));
     } else {
@@ -74,11 +78,11 @@ public class ManagedSet {
     boolean startsWith = text.getKey().startsWith(cursorWord.getText());
     return startsWith;
   }
-  
+
   /**
-   * 
+   *
    * @param items
-   * @return 
+   * @return
    */
   private String getJoin(Set<CompletionItem> items) {
     return String.join("", items.stream().map((i) -> i.getKey()).collect(Collectors.toList()));

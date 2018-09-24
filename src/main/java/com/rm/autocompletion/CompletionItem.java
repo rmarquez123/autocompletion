@@ -3,6 +3,7 @@ package com.rm.autocompletion;
 import java.util.Objects;
 
 /**
+ * Completion item entity.
  *
  * @author rmarquez
  */
