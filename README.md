@@ -6,3 +6,5 @@ A module for simple auto completion.  The purpose of this module is to satisfy t
   1. The user selects one of the completion items from the list of candidate completion items
   1. The word preceding the cursor postion is replaced based on the insertion text of the selected completion item
 This module provides the <code>AutoCompletion</code> object as the public controller class and <code>Document</code> and <code>CompletionItemsDisplayer</code> as interfaces. 
+
+![Autocompletion activity diagram](http://localhost/rm/assets/images/activity-diagram-page-6.svg)
