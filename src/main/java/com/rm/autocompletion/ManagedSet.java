@@ -51,12 +51,7 @@ public class ManagedSet {
     CandidateCompletionItems result;
     Set<CompletionItem> preliminary = this.getPreliminaryCandidatesAsSet(cursorWord);
     Set<CompletionItem> items = this.applyGrouping(preliminary);
-    List<CompletionItem> itemsList;
-    if ((items.size() == 1 && this.getJoin(items).isEmpty())) {
-      itemsList = Arrays.asList(new CompletionItem(cursorWord.getText(), cursorWord.getText(), null));
-    } else {
-      itemsList = items.stream().sorted().collect(Collectors.toList());
-    }
+    List<CompletionItem> itemsList = this.convertCompletionItemsToList(items, cursorWord);
     result = new CandidateCompletionItems(itemsList);
     return result;
   }
@@ -101,6 +96,22 @@ public class ManagedSet {
       }
     });
     return items;
+  }
+
+  /**
+   *
+   * @param items
+   * @param cursorWord
+   * @return
+   */
+  private List<CompletionItem> convertCompletionItemsToList(Set<CompletionItem> items, CursorWord cursorWord) {
+    List<CompletionItem> itemsList;
+    if ((items.size() == 1 && this.getJoin(items).isEmpty())) {
+      itemsList = Arrays.asList(new CompletionItem(cursorWord.getText(), cursorWord.getText(), null));
+    } else {
+      itemsList = items.stream().sorted().collect(Collectors.toList());
+    }
+    return itemsList;
   }
 
   /**
