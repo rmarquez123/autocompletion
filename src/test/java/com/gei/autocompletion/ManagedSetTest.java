@@ -1,5 +1,9 @@
 package com.gei.autocompletion;
 
+import com.rm.autocompletion.CompletionItem;
+import com.rm.autocompletion.CandidateCompletionItems;
+import com.rm.autocompletion.CursorWord;
+import com.rm.autocompletion.ManagedSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;

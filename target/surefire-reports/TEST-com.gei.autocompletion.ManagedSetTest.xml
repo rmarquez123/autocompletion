@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="6" failures="0" name="com.gei.autocompletion.ManagedSetTest" time="0.125" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="com.gei.autocompletion.ManagedSetTest" time="0.131" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_91\jre\bin"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="Service Pack 1"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Dev\java\groups\Sandbox\autocompletion\autocompletion"/>
+    <property name="user.dir" value="C:\Dev\java\groups\Sandbox\autocompletion\git\autocompletion"/>
     <property name="java.runtime.version" value="1.8.0_91-b15"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_91\jre\lib\endorsed"/>
@@ -29,7 +29,7 @@
     <property name="maven.ext.class.path" value="C:\Program Files\NetBeans 8.1\java\maven-nblib\netbeans-eventspy.jar"/>
     <property name="classworlds.conf" value="C:\Program Files\NetBeans 8.1\java\maven\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_91\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\IntelSWTools\Trace Analyzer and Collector\9.1.2.024\bin;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2016.3.207\windows\mpi\intel64\bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64_win\mpirt;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\ia32_win\mpirt;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64_win\compiler;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\ia32_win\compiler;C:\oraclexe\app\oracle\product\11.2.0\server\bin;C:\ProgramData\Oracle\Java\javapath;c:\program files\common files\microsoft shared\windows live;c:\program files (x86)\common files\microsoft shared\windows live;c:\windows\system32;c:\windows;c:\windows\system32\wbem;c:\windows\system32\windowspowershell\v1.0\;c:\program files (x86)\windows live\shared;c:\program files (x86)\ati technologies\ati.ace\core-static;c:\program files (x86)\amd\ati.ace\core-static;C:\Program Files\TortoiseHg\;C:\Program Files\Hexagon\ERDAS IMAGINE 2016\;C:\Program Files\MATLAB\R2012a\runtime\win64;C:\Program Files\MATLAB\R2012a\bin;C:\Program Files (x86)\IntelSWTools\Trace Analyzer and Collector\9.1.2.024\dll;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_91\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\IntelSWTools\Trace Analyzer and Collector\9.1.2.024\bin;C:\Program Files (x86)\IntelSWTools\compilers_and_libraries_2016.3.207\windows\mpi\intel64\bin;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64_win\mpirt;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\ia32_win\mpirt;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64_win\compiler;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\ia32_win\compiler;C:\oraclexe\app\oracle\product\11.2.0\server\bin;C:\ProgramData\Oracle\Java\javapath;c:\program files\common files\microsoft shared\windows live;c:\program files (x86)\common files\microsoft shared\windows live;c:\windows\system32;c:\windows;c:\windows\system32\wbem;c:\windows\system32\windowspowershell\v1.0\;c:\program files (x86)\windows live\shared;c:\program files (x86)\ati technologies\ati.ace\core-static;c:\program files (x86)\amd\ati.ace\core-static;C:\Program Files\TortoiseHg\;C:\Program Files\Hexagon\ERDAS IMAGINE 2016\;C:\Program Files\MATLAB\R2012a\runtime\win64;C:\Program Files\MATLAB\R2012a\bin;C:\Program Files\Git\cmd;C:\Program Files (x86)\IntelSWTools\Trace Analyzer and Collector\9.1.2.024\dll;C:\Users\kool\AppData\Local\GitHubDesktop\bin;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="52.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -61,7 +61,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="[0] a\u002Ca (testGetCompletionItems)(com.gei.autocompletion.ManagedSetTest)" name="[0] a\u002Ca " time="0.078"/>
+  <testcase classname="[0] a\u002Ca (testGetCompletionItems)(com.gei.autocompletion.ManagedSetTest)" name="[0] a\u002Ca " time="0.063"/>
   <testcase classname="[1] a.\u002Ca.1;a.2;a.3 (testGetCompletionItems)(com.gei.autocompletion.ManagedSetTest)" name="[1] a.\u002Ca.1;a.2;a.3 " time="0"/>
   <testcase classname="[2] b\u002Cb (testGetCompletionItems)(com.gei.autocompletion.ManagedSetTest)" name="[2] b\u002Cb " time="0"/>
   <testcase classname="[3] b.\u002Cb.1;b.2 (testGetCompletionItems)(com.gei.autocompletion.ManagedSetTest)" name="[3] b.\u002Cb.1;b.2 " time="0"/>
