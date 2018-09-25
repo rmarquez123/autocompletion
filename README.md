@@ -1,6 +1,6 @@
 # autocompletion
 <h4>See also - https://github.com/rmarquez123/autocompletionNb</h4> 
-<h3> Purpose<h3> 
+<h3> Purpose</h3> 
 A module for simple auto completion.  The purpose of this module is to satisfy the use case steps: 
   1. User enters text and invokes autocompletion
   1. A list of candidate completion items is returned based on the word preceding the cursor position
