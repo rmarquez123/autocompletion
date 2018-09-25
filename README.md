@@ -1,4 +1,4 @@
-# autocompletion
+# (simple) autocompletion module
 <h4>See also - https://github.com/rmarquez123/autocompletionNb</h4> 
 <h3> Purpose</h3> 
 A module for simple auto completion.  The purpose of this module is to satisfy the use case steps: 
