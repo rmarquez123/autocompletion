@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * A set of completion items. Used in collaboration with
@@ -19,14 +20,14 @@ import javafx.collections.FXCollections;
  */
 public class ManagedSet {
 
-  private final ListProperty<CompletionItem> textItems = new SimpleListProperty<>();
+  private final ListProperty<CompletionItem> textItemsProperty = new SimpleListProperty<>();
 
   /**
    *
    * @param textItems
    */
   public ManagedSet(List<CompletionItem> textItems) {
-    this.textItems.setValue(FXCollections.observableArrayList(textItems));
+    this.textItemsProperty.setValue(FXCollections.observableArrayList(textItems));
   }
 
   /**
@@ -36,7 +37,7 @@ public class ManagedSet {
    * @param items
    */
   public void setCompletionItems(List<CompletionItem> items) {
-    this.textItems.setValue(FXCollections.observableArrayList(items));
+    this.textItemsProperty.setValue(FXCollections.observableArrayList(items));
   }
 
   /**
@@ -62,22 +63,46 @@ public class ManagedSet {
    * @return
    */
   private Set<CompletionItem> getPreliminaryCandidatesAsSet(CursorWord cursorWord) {
-    Set<CompletionItem> preliminary = this.textItems.getValue().stream().filter((completionItems) -> {
-      return this.filter(cursorWord, completionItems);
+    ObservableList<CompletionItem> textItems = this.textItemsProperty.getValue();
+    Set<CompletionItem> preliminary = textItems.stream().filter((ci) -> {
+      boolean keep = this.keepCompletionItem(cursorWord, ci);
+      return keep;
     }).map((ci) -> {
-      String sub = ci.getKey().replace(cursorWord.getText(), "");
-      int delimiterIndex = sub.indexOf(".");
-      if (delimiterIndex != -1) {
-        sub = sub.substring(0, delimiterIndex);
-      }
-      CompletionItem completionItem = new CompletionItem(sub, ci.getInsertionText(), ci.getObject());
-      return completionItem;
-    }).map((i) -> {
-      String key = cursorWord.getText() + i.getKey();
-      CompletionItem completionItem = new CompletionItem(key, i.getInsertionText(), i.getObject());
+      CompletionItem modifiedCi = this.removeCharactersBeforeLastPeriod(ci, cursorWord);
+      return modifiedCi;
+    }).map((ciOld) -> {
+      CompletionItem completionItem = this.preprendCursorWord(cursorWord, ciOld);
       return completionItem;
     }).collect(Collectors.toSet());
     return preliminary;
+  }
+  
+  /**
+   * 
+   */
+  private CompletionItem preprendCursorWord(CursorWord cursorWord, CompletionItem ciOld) {
+    String key = cursorWord.getText() + ciOld.getKey();
+    String insertionText = ciOld.getInsertionText();
+    Object refObject = ciOld.getObject();
+    CompletionItem completionItem = new CompletionItem(key, insertionText, refObject);
+    return completionItem;
+  }
+  
+  /**
+   * 
+   * @param ci
+   * @param cursorWord
+   * @return 
+   */
+  private CompletionItem removeCharactersBeforeLastPeriod(CompletionItem ci, 
+          CursorWord cursorWord) {
+    String sub = ci.getKey().replace(cursorWord.getText(), "");
+    int delimiterIndex = sub.indexOf(".");
+    if (delimiterIndex != -1) {
+      sub = sub.substring(0, delimiterIndex);
+    }
+    CompletionItem completionItem = new CompletionItem(sub, ci.getInsertionText(), ci.getObject());
+    return completionItem;
   }
 
   /**
@@ -88,7 +113,7 @@ public class ManagedSet {
   private Set<CompletionItem> applyGrouping(Set<CompletionItem> preliminary) {
     Set<CompletionItem> items = new HashSet<>();
     preliminary.stream().forEach((item) -> {
-      if (this.textItems.getValue().contains(item)) {
+      if (this.textItemsProperty.getValue().contains(item)) {
         items.add(item);
       } else {
         CompletionItem groupCompletionItem = new CompletionItem(item.getKey(), null, null);
@@ -119,7 +144,7 @@ public class ManagedSet {
    * @param text
    * @return
    */
-  private boolean filter(CursorWord cursorWord, CompletionItem text) {
+  private boolean keepCompletionItem(CursorWord cursorWord, CompletionItem text) {
     boolean startsWith = text.getKey().startsWith(cursorWord.getText());
     return startsWith;
   }
